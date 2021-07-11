@@ -27,8 +27,8 @@ public class AuthFilter extends GenericFilterBean{
 //		to access any protected resource we want the client to pass the header
 		String authHeader=httpRequest.getHeader("Authorization");
 		if(authHeader!=null) {
-			String[] authHeaderArr=authHeader.split("Bearer");
-			if(authHeaderArr.length>1 && authHeaderArr[1]!=null) {
+			String[] authHeaderArr=authHeader.split("Bearer ");
+			if(authHeaderArr.length > 1 && authHeaderArr[1]!=null) {
 				String token=authHeaderArr[1];
 				try {
 					//fetching for the claims which are in the payload
@@ -41,7 +41,7 @@ public class AuthFilter extends GenericFilterBean{
 					
 				}
 			}else {
-				httpResponse.sendError(HttpStatus.FORBIDDEN.value(),"Authorization token must be Bearer[token]");
+				httpResponse.sendError(HttpStatus.FORBIDDEN.value(),"Authorization token must be Bearer [token]");
 				return;
 			}
 		}else {
@@ -49,7 +49,6 @@ public class AuthFilter extends GenericFilterBean{
 			return;
 		}
 		chain.doFilter(request, response);
-		
 		
 	}
 
