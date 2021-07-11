@@ -1,4 +1,4 @@
-package com.placide.tracker.repositories;
+package com.placideh.tracker.repositories;
 
 import com.placideh.tracker.domain.User;
 import com.placideh.tracker.exceptions.EtAuthException;

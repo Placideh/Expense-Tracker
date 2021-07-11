@@ -6,9 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.placide.tracker.repositories.UserRepository;
 import com.placideh.tracker.domain.User;
 import com.placideh.tracker.exceptions.EtAuthException;
+import com.placideh.tracker.repositories.UserRepository;
 @Service
 @Transactional
 public class UserServiceImpl implements UserService{
@@ -18,7 +18,8 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public User validateUser(String email, String password) throws EtAuthException {
 		// TODO Auto-generated method stub
-		return null;
+		if(email!=null)email=email.toLowerCase();
+		return userRepository.findByEmailAndPassword(email, password);
 	}
 
 	@Override

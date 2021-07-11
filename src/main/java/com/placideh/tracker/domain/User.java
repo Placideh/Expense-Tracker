@@ -1,16 +1,24 @@
 package com.placideh.tracker.domain;
 
 public class User {
+	private Integer userId;
 	private String firstName;
 	private String lastName;
 	private String email;
 	private String password;
-	public User(String firstName, String lastName, String email, String password) {
+	public User(Integer userId, String firstName, String lastName, String email, String password) {
 		super();
+		this.userId = userId;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
 		this.password = password;
+	}
+	public Integer getUserId() {
+		return userId;
+	}
+	public void setUserId(Integer userId) {
+		this.userId = userId;
 	}
 	public String getFirstName() {
 		return firstName;
@@ -38,9 +46,10 @@ public class User {
 	}
 	@Override
 	public String toString() {
-		return "User [firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + ", password=" + password
-				+ "]";
+		return "User [userId=" + userId + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
+				+ ", password=" + password + "]";
 	}
+	
 	
 	
 }
